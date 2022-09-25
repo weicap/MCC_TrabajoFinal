@@ -23,15 +23,17 @@ function getHeight(node) {
 function build_kdtree(points, depth = 0){
     var n = points.length;
     var axis = depth % k;//depth en que nivel estamos
-    
+    //console.log('w'+n);
     
     if (n <= 0){
     return null;
     }
     if (n == 1){
+    //console.log(point[0]);
     return new Node(points[0], axis)
+
     }
-    
+    //console.log(points[0]);
     var median = Math.floor(points.length / 2);
     
     // sort by the axis :: ordenamos por el eje axis
@@ -39,16 +41,16 @@ function build_kdtree(points, depth = 0){
     {
     return a[axis] - b[axis];
     });
-    //console.log(points);
+    
     
     var left = points.slice(0, median);
     var right = points.slice(median + 1);
-    
-   // console.log(right);
+    //console.log(median);
+    console.log(points[1][2]);
     var node = new Node(points[median].slice(0, k), axis);
     node.left = build_kdtree(left, depth + 1);
     node.right = build_kdtree(right, depth + 1);
-    
+    //console.log(node);
     return node;
 }
 
