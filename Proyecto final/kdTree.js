@@ -29,7 +29,6 @@
       if (points.length === 1) {
         return new Node(points[0], dim, parent);
       }
-
       points.sort(function (a, b) {
         return a[dimensions[dim]] - b[dimensions[dim]];
       });
@@ -78,7 +77,6 @@
 
     this.insert = function (point) {
       function innerSearch(node, parent) {
-
         if (node === null) {
           return parent;
         }
