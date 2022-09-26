@@ -43,8 +43,7 @@
       return node;
     }
 
-    // Reloads a serialied tree
-   
+    // Reloads a serialied tree   
     function loadTree (data) {
       // Just need to restore the `parent` parameter
       self.root = data;
