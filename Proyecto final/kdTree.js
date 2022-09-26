@@ -108,7 +108,6 @@
 
     this.remove = function (point) {
       var node;
-
       function nodeSearch(node) {
         if (node === null) {
           return null;
