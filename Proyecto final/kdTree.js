@@ -62,7 +62,7 @@
       restoreParent(self.root);
     }
 
-    // If points is not an array, assume we're loading a pre-built tree
+    // si los puntos no son array
     if (!Array.isArray(points)) loadTree(points, metric, dimensions);
     else this.root = buildTree(points, 0, null);
 
@@ -127,7 +127,7 @@
           return nodeSearch(node.right, node);
         }
       }
-
+        //funcion para remover el nodo
       function removeNode(node) {
         var nextNode,
           nextObj,
@@ -174,7 +174,7 @@
           }
 
           pDimension = dimensions[node.parent.dimension];
-
+            //funcion de dimensiones y si es nula
           if (node.obj[pDimension] < node.parent.obj[pDimension]) {
             node.parent.left = null;
           } else {
@@ -313,10 +313,8 @@
     };
   }
 
-  // Binary heap implementation from:
-  // http://eloquentjavascript.net/appendix2.html
-
-  function BinaryHeap(scoreFunction){
+  // implementacion binario
+   function BinaryHeap(scoreFunction){
     this.content = [];
     this.scoreFunction = scoreFunction;
   }
@@ -416,7 +414,7 @@
           if (child1Score < elemScore)
             swap = child1N;
         }
-        // Do the same checks for the other child.
+        // verifica si hay otros menores
         if (child2N < length) {
           var child2 = this.content[child2N],
               child2Score = this.scoreFunction(child2);
@@ -425,7 +423,7 @@
           }
         }
 
-        // If the element needs to be moved, swap it, and continue.
+        // si el elemento necesita ser movido, swap.
         if (swap != null) {
           this.content[n] = this.content[swap];
           this.content[swap] = element;
