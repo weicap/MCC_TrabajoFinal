@@ -6,6 +6,7 @@
     } else {
         factory(root);     
     }
+  
 }(this, function (exports) {
   function Node(obj, dimension, parent) {
     this.obj = obj;
