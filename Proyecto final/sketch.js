@@ -2,8 +2,6 @@ var root;
 var pointP = [17.9777, 129.0812];
 var data_diabetes=[];
 var arra=[];
-//}
-
 
 function setup () {
     var width = 600;
@@ -29,12 +27,9 @@ function setup () {
         }
     }
 
- 
-
     var Diabetes_data = new DataClass();
     data_diabetes = Diabetes_data.r_Pca_diabetes
-    
-    
+      
     datos_Prueba(data_diabetes);
     
 }
@@ -46,8 +41,6 @@ function graficarclosetPoint(roots=root){
     circle(nearestPoint[0],height-nearestPoint[1],10);
     console.log("El nodo mas cercano es: "+nearestPoint);
 }
-
-
 
 function datos_Prueba(datas){
     // console.log('av4',datas);
@@ -98,15 +91,12 @@ function graficarKNN(){
     }
 }
 
-
 function rangeCir(){
-    //console.log('prueba1');
     var fe = [];
     var pon = pointP//[140, 90];
     //var h = [50, 100];
     var radio= document.getElementById("radio").value;
-    //var radio = 75;
-
+    
     range_query_circle(root,pon,radio,fe);
     fill(0,255,0,40);
     circle(pon[0],height-pon[1],radio*2)
@@ -114,13 +104,11 @@ function rangeCir(){
 
 
 function rangeRec(){
-    //console.log('prueba1');
     var fe = [];
     var pon = pointP//[140, 90];
     var l1= document.getElementById("lado1").value;
     var l2= document.getElementById("lado2").value;
     var h = [l1, l2];
-    //var radio= document.getElementById("radio").value;
     var radio = 50;
 
     range_query_rect(root,pon,h,fe);
@@ -138,13 +126,7 @@ function rangeRec(){
 
 document.getElementsByClassName("holamundos")[0].addEventListener("click", e => {
 	e.preventDefault();
-    console.log('prueba click');
-	// let key = document.getElementsByClassName("key")[0].value;
-	// let val = 0 //document.getElementsByClassName("value")[0].value;
-
-	// tree.insertNode(key, val);
-
-	// Clear input fields
+	console.log('prueba click');
 	document.getElementsByClassName("holamundostex")[0].value = "hola mundo";
 	//document.getElementsByClassName("value")[0].value = "";
 });
@@ -178,7 +160,6 @@ function knn_2(data_diabetes){
         // x: -0.02641380436087745,
         // y:  -0.019325203344133426};
     
-    
     console.log(pointToPredict);
     
     var nearest = tree.nearest(pointToPredict, k);
@@ -196,7 +177,6 @@ function knn_2(data_diabetes){
       else{
         Nodiabetico++;
       }
-      
     }
     console.log("Vecinos Diabeticos: ",Diabetico);
     console.log("Vecinos No Diabeticos: ",Nodiabetico);
