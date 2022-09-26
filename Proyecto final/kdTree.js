@@ -23,7 +23,6 @@
       var dim = depth % dimensions.length,
         median,
         node;
-
       if (points.length === 0) {
         return null;
       }
@@ -60,7 +59,6 @@
           restoreParent(root.right);
         }
       }
-
       restoreParent(self.root);
     }
 
