@@ -437,7 +437,6 @@
       }
     }
   };
-
   exports.kdTree = kdTree;
   exports.BinaryHeap = BinaryHeap;
 }));
