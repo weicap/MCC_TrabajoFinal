@@ -11,8 +11,7 @@ function setup () {
 
     background (0) ;
 
- ///////punto prueba   
-	
+
     fill(254, 255, 51);
     circle(pointP[0],height-pointP[1],20);
     textSize(11);
@@ -74,7 +73,6 @@ function drawGraph(dotString) {
         });
 }
 
-
 function graficarKNN(){
     console.log('f2');
     var cantidadK= document.getElementById("cantidadKnn").value;
@@ -99,7 +97,6 @@ function rangeCir(){
     circle(pon[0],height-pon[1],radio*2)
 }
 
-
 function rangeRec(){
     var fe = [];
     var pon = pointP//[140, 90];
@@ -119,7 +116,6 @@ function rangeRec(){
         text(fe[i][0] + ',' + fe[i][1], fe[i][0] + 5, height - fe[i][1]); //200-y para q se dibuje apropiadamente
     }
 }
-
 
 document.getElementsByClassName("holamundos")[0].addEventListener("click", e => {
 	e.preventDefault();
