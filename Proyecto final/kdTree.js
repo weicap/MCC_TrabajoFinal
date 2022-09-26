@@ -73,7 +73,6 @@
       if (src.right) dest.right = self.toJSON(src.right);
       return dest;
     };
-
     this.insert = function (point) {
       function innerSearch(node, parent) {
         if (node === null) {
