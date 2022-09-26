@@ -15,7 +15,9 @@
     this.parent = parent;
     this.dimension = dimension;
   }
+  
  // Implementación del KdTree
+  
   function kdTree(points, metric, dimensions) {
 
     var self = this;
