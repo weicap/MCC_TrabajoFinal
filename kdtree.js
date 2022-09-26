@@ -105,8 +105,7 @@ function closest_point(node,point) {
         closest_point(node.right,point);
         var otherNode = node.left;
     }  
-    //Si la hiperesfera candidata cruza este plano de división, mira el otro lado del plano examinando el otro subárbol
-    if (otherNode !== null) {
+        if (otherNode !== null) {
         var i = node.axis;
         var delta = Math.abs(node.point[i] - point[i]);
         if (delta < bestDist) {
@@ -138,7 +137,7 @@ function naive_closest_point(node,point) {
         
     }
     console.log(node.point+' = ' +nodeDist);
-    // Busca de forma recursiva la mitad del árbol que contiene el objetivo
+   
     var side = point[node.axis] < node.point[node.axis] ? "left" : "right";
     if (side == "left") {
         naive_closest_point(node.left,point);
@@ -185,7 +184,7 @@ function findKNN(node,point,KN){
 function KNN(node,point){
     if (node === null) return;
     scannedNodes.push(node);
-    // Agregar punto actual a BPQ
+
     queue.add(node, distanceSquared(node.point, point));
     // Busca de forma recursiva la mitad del árbol que contiene el punto de prueba
     if (point[node.axis] < node.point[node.axis]) {//comprobar la izquierda
@@ -195,7 +194,7 @@ function KNN(node,point){
         KNN(node.right,point);
         var otherNode = node.left;
     }
-    //Si la hiperesfera candidata cruza este plano de división, mira el otro lado del plano examinando el otro subárbol
+
     var delta = Math.abs(node.point[node.axis] - point[node.axis]);
     if (!queue.isFull() || delta < queue.maxPriority()) {
         KNN(otherNode,point);
@@ -309,28 +308,4 @@ function range_query_circle(node, center, radio, queue, depth = 0) {
 
 	return best;
 }
-// function getHeight(node){
-//     return height;
-// }
-// function generate_dot(node){}
 
-
-// function in_circle(point, center, radio){
-//     var dis = distanceSquared(point,center);
-//     if(dis <= radio)
-//         return true;
-//     else
-//         return false;
-// }
-
-
-// function distanceSquared ( point1 , point2 ){
-//     var distance = 0;
-//     for (var i = 0; i < k; i ++)
-//     distance += Math.pow (( point1 [i] - point2 [i]) , 2) ;
-//     return Math.sqrt ( distance );
-//  }
-
-// function closest_point_brute_force ( points , point ) {}
-
-// function naive_closest_point (node , point , depth = 0, best = null ) {}
