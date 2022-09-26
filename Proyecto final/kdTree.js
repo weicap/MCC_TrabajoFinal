@@ -5,6 +5,7 @@
         factory(exports);
     } else {
         factory(root);
+     
     }
 }(this, function (exports) {
   function Node(obj, dimension, parent) {
