@@ -172,20 +172,6 @@ exports.INSPECT_MAX_BYTES = 50
 var K_MAX_LENGTH = 0x7fffffff
 exports.kMaxLength = K_MAX_LENGTH
 
-/**
- * If `Buffer.TYPED_ARRAY_SUPPORT`:
- *   === true    Use Uint8Array implementation (fastest)
- *   === false   Print warning and recommend using `buffer` v4.x which has an Object
- *               implementation (most compatible, even IE6)
- *
- * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
- * Opera 11.6+, iOS 4.2+.
- *
- * We report that the browser does not support typed arrays if the are not subclassable
- * using __proto__. Firefox 4-29 lacks support for adding new properties to `Uint8Array`
- * (See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438). IE 10 lacks support
- * for __proto__ and has a buggy typed array implementation.
- */
 Buffer.TYPED_ARRAY_SUPPORT = typedArraySupport()
 
 if (!Buffer.TYPED_ARRAY_SUPPORT && typeof console !== 'undefined' &&
@@ -233,15 +219,6 @@ function createBuffer (length) {
   return buf
 }
 
-/**
- * The Buffer constructor returns instances of `Uint8Array` that have their
- * prototype changed to `Buffer.prototype`. Furthermore, `Buffer` is a subclass of
- * `Uint8Array`, so the returned instances will have all the node `Buffer` methods
- * and the `Uint8Array` methods. Square bracket notation works as expected -- it
- * returns a single octet.
- *
- * The `Uint8Array` prototype remains unmodified.
- */
 
 function Buffer (arg, encodingOrOffset, length) {
   // Common case.
@@ -317,14 +294,7 @@ function from (value, encodingOrOffset, length) {
   )
 }
 
-/**
- * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError
- * if value is a number.
- * Buffer.from(str[, encoding])
- * Buffer.from(array)
- * Buffer.from(buffer)
- * Buffer.from(arrayBuffer[, byteOffset[, length]])
- **/
+
 Buffer.from = function (value, encodingOrOffset, length) {
   return from(value, encodingOrOffset, length)
 }
@@ -685,12 +655,6 @@ function slowToString (encoding, start, end) {
   }
 }
 
-// This property is used by `Buffer.isBuffer` (and the `is-buffer` npm package)
-// to detect a Buffer instance. It's not possible to use `instanceof Buffer`
-// reliably in a browserify context because there could be multiple different
-// copies of the 'buffer' package in use. This method works even for Buffer
-// instances that were created from another copy of the `buffer` package.
-// See: https://github.com/feross/buffer/issues/154
 Buffer.prototype._isBuffer = true
 
 function swap (b, n, m) {
@@ -824,15 +788,6 @@ Buffer.prototype.compare = function compare (target, start, end, thisStart, this
   return 0
 }
 
-// Finds either the first index of `val` in `buffer` at offset >= `byteOffset`,
-// OR the last index of `val` in `buffer` at offset <= `byteOffset`.
-//
-// Arguments:
-// - buffer - a Buffer to search
-// - val - a string, Buffer, or number
-// - byteOffset - an index into `buffer`; will be clamped to an int32
-// - encoding - an optional encoding, relevant is val is a string
-// - dir - true for indexOf, false for lastIndexOf
 function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
   // Empty buffer means no match
   if (buffer.length === 0) return -1
