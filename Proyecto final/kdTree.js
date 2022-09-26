@@ -200,7 +200,6 @@
       node = nodeSearch(self.root);
 
       if (node === null) { return; }
-
       removeNode(node);
     };
 
