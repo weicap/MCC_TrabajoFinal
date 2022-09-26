@@ -209,7 +209,6 @@
       var i,
         result,
         bestNodes;
-
       bestNodes = new BinaryHeap(
         function (e) { return -e[1]; }
       );
