@@ -12,10 +12,12 @@ function setup () {
     background (0) ;
 
  ///////punto prueba   
+	
     fill(254, 255, 51);
     circle(pointP[0],height-pointP[1],20);
     textSize(11);
     //text(pointP[0]+ ',' + pointP[1], 140+ 5, height - 90);
+	
 ////////punto prueba end
 
     for (var x = 200; x < width; x += width / 10) {
@@ -28,10 +30,8 @@ function setup () {
     }
 
     var Diabetes_data = new DataClass();
-    data_diabetes = Diabetes_data.r_Pca_diabetes
-      
-    datos_Prueba(data_diabetes);
-    
+    data_diabetes = Diabetes_data.r_Pca_diabetes      
+    datos_Prueba(data_diabetes);    
 }
 
 function graficarclosetPoint(roots=root){
@@ -50,8 +50,6 @@ function datos_Prueba(datas){
         fill(57, 255, 20);
         circle(x, height - y, 4);
         textSize(8);
-        // console.log('av5');
-        //ext (x + ',' + y, x + 5, height - y);
     }
 return
 }
@@ -63,7 +61,6 @@ function drawGraph(dotString) {
     let viz = new Viz();
 
     viz.renderSVGElement("digraph G { " + graphOptions + dotString + "}")
-        //console.log('viz')
         .then(function (element) {
             //console.log('viz')
             var parentTree = document.getElementById('KdTreeSvg');
@@ -131,7 +128,6 @@ document.getElementsByClassName("holamundos")[0].addEventListener("click", e => 
 	//document.getElementsByClassName("value")[0].value = "";
 });
 
-
 function knn_2(data_diabetes){
     // console.log('1uno');
     var data=[];
@@ -147,14 +143,10 @@ function knn_2(data_diabetes){
       data.push(newObject);
       
     }
-
-
     var tree = new kdTree(data, distance, ["x", "y"]);
-
-    
+   
     var k = 20; // K neighbors ( Configuramos el número de vecinos más cercanos)
     
-   
     var pointToPredict= [17.9777, 129.0812];
     // console.log(pointToPredict)
         // x: -0.02641380436087745,
@@ -198,7 +190,6 @@ function distance(a, b) {
     var dy = a.y - b.y;
     return dx*dx + dy*dy;
 }
-
 
 var queue ;
 function findKNN(node,point,KN){
