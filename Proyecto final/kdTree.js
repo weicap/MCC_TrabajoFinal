@@ -4,8 +4,7 @@
     } else if (typeof exports === 'object') {
         factory(exports);
     } else {
-        factory(root);
-     
+        factory(root);     
     }
 }(this, function (exports) {
   function Node(obj, dimension, parent) {
