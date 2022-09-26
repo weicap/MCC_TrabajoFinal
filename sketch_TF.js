@@ -30,30 +30,7 @@ function setup () {
     }
 
 
-    // // const spawner = require('child_process').spawn;
-
-    // // const data_to_pass_in ={
-    // //     data_sent: 'Send this tu python',
-    // //     data_returned: undefined
-    // // }
-
-    // // // var data_to_pass_in = [[10,12]]
-
-    // // console.log('data sent to python script', data_to_pass_in);
-
-    // // const python_process = spawner('python',['./app.py', JSON.stringify(data_to_pass_in)]);
-
-    // // python_process.stdout.on('data',(data)=>{
-    // //     //console.log('data recived: ',JSON.parse(data.toString()));
-    // //     console.log('data recived: ',JSON.parse(data.toString()));
-    // // console.log('listo 2')
-    // // let arra = JSON.parse(data)
-    // // console.log(typeof arra)
-    // // });
-
-
-
-    data = [
+     data = [
         [40 ,70] ,
         [70 ,130] ,
         [90 ,40] ,
