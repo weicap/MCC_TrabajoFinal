@@ -1,6 +1,6 @@
 ## Trabajo Final
 ##
-### Christian N ́estor Barriga Marcapura
+### Christian Nestor Barriga Marcapura
 ### Weimar Ccapatinta Huamani
 ### Roger Gutierrez Espinoza
 
